@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="dfchat-api-base-url" content="">
   <title>Dream Homes - Real Estate</title>
 
   <style>
@@ -93,7 +94,8 @@
       padding: 40px 20px;
     }
 
-    input, textarea {
+    .contact input,
+    .contact textarea {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
@@ -101,7 +103,7 @@
       border-radius: 5px;
     }
 
-    button {
+    .contact button {
       background: #f59e0b;
       border: none;
       padding: 10px 20px;
@@ -116,57 +118,37 @@
       text-align: center;
       padding: 15px;
     }
+
+    /* Local test (myweb only): nudge dfchat contact overlay 10px up from default */
+    body.myweb-test #dfchat-contact-form.dfchat-is-open {
+      animation: none;
+      opacity: 1;
+      transform: translateY(-10px);
+    }
   </style>
 
-   <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
-
-    <link rel="stylesheet" href="https://qabot2026.github.io/multilingual/static/company.css">
+  <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+  <link rel="stylesheet" href="https://qabot2026.github.io/multilingual/static/company.css">
 </head>
-<body>
+<body class="myweb-test">
 
-   <script>
+  <script>
     (function () {
       try {
         var params = new URLSearchParams(window.location.search || "");
-        if (params.get("companyDebug") === "1") {
-          window.__companyDebug = true;
-          localStorage.setItem("company_debug_footer", "1");
-          localStorage.setItem("company_debug_freeze", "0");
+        if (params.get("dfchatDebug") === "1" || params.get("companyDebug") === "1") {
+          window.__dfchatDebug = true;
+          localStorage.setItem("dfchat_debug_footer", "1");
+          localStorage.setItem("dfchat_debug_freeze", "0");
         }
       } catch (e) {}
     })();
   </script>
-  <section id="contact-form" class="contact-form" aria-hidden="true">
-    <div class="contact-form__card">
-      <div class="contact-form__header">
-        <div>
-          <h2 class="contact-form__title" data-i18n="contactFormTitle">Contact Us</h2>
-          <p class="contact-form__subtitle" data-i18n="contactFormSubtitle">Share your details and we will contact you.</p>
-        </div>
-        <button id="contact-form-close" class="contact-form__icon-button" type="button" aria-label="Close contact form" data-i18n-aria-label="closeContactFormAria">x</button>
-      </div>
-      <form id="contact-form-fields" class="contact-form__fields contact-form__fields--stacked">
-        <div id="contact-form-inputs" class="contact-form__inputs" data-i18n-aria-label="contactFormTitle"></div>
-        <p id="contact-form-status" class="contact-form__status" aria-live="polite"></p>
-        <button id="contact-form-submit" class="contact-form__submit" type="submit" data-i18n="submitButton">Submit</button>
-      </form>
-    </div>
-  </section>
-  <div id="company-hard-action-bar" aria-label="Chat footer actions" hidden>
-    <div id="company-hard-language-wrap">
-      <button id="company-hard-language-btn" type="button" aria-label="Language" title="Language">🌐</button>
-      <div id="company-hard-language-menu" role="menu" aria-label="Language options">
-        <button type="button" data-lang="en">English</button>
-        <button type="button" data-lang="hi">Hindi</button>
-        <button type="button" data-lang="mr">Marathi</button>
-      </div>
-    </div>
-    <button id="company-hard-restart-btn" type="button" aria-label="Restart" title="Restart">↻</button>
-  </div>
+
   <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
   <script src="https://qabot2026.github.io/multilingual/static/company.config.js"></script>
   <script src="https://qabot2026.github.io/multilingual/static/company.js"></script>
-  
+
 <header>
   <h1>Dream Homes</h1>
   <nav>
@@ -176,7 +158,6 @@
   </nav>
 </header>
 
-  
 <section class="hero">
   <h2>Find Your Perfect Home</h2>
 </section>
@@ -187,7 +168,7 @@
   <div class="properties">
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c">
+      <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c" alt="">
       <div class="card-content">
         <h3>Luxury Villa</h3>
         <p>4 BHK • Swimming Pool • Garden</p>
@@ -196,7 +177,7 @@
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
+      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2" alt="">
       <div class="card-content">
         <h3>Modern Apartment</h3>
         <p>3 BHK • City View</p>
@@ -205,7 +186,7 @@
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="">
       <div class="card-content">
         <h3>Family House</h3>
         <p>2 BHK • Parking • Garden</p>
@@ -222,7 +203,7 @@
   <input type="text" placeholder="Your Name">
   <input type="email" placeholder="Your Email">
   <textarea placeholder="Your Message"></textarea>
-  <button>Send Inquiry</button>
+  <button type="button">Send Inquiry</button>
 </section>
 
 <footer>
