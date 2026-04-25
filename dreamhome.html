@@ -1,138 +1,90 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>CityCare Hospital</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="dfchat-api-base-url" content="">
-  <title>Dream Homes - Real Estate</title>
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f5f5f5;
     }
 
     header {
-      background: #1e3a8a;
+      background: #0077b6;
       color: white;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 15px;
+      text-align: center;
     }
 
-    header h1 {
-      margin: 0;
+    nav {
+      background: #023e8a;
+      padding: 10px;
+      text-align: center;
     }
 
     nav a {
       color: white;
-      margin-left: 20px;
+      margin: 0 15px;
       text-decoration: none;
+      font-weight: bold;
     }
 
     .hero {
-      background: url('https://images.unsplash.com/photo-1568605114967-8130f3a36994') center/cover;
-      height: 400px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3') no-repeat center/cover;
+      height: 300px;
       color: white;
-      text-align: center;
-    }
-
-    .hero h2 {
-      font-size: 40px;
-      background: rgba(0,0,0,0.5);
-      padding: 15px;
-      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      font-weight: bold;
     }
 
     .section {
-      padding: 40px 20px;
+      padding: 40px;
       text-align: center;
     }
 
-    .properties {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
+    .services {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
     }
 
     .card {
-      background: white;
+      width: 250px;
+      padding: 20px;
+      margin: 10px;
+      border: 1px solid #ccc;
       border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 15px;
-    }
-
-    .card h3 {
-      margin: 0;
-    }
-
-    .price {
-      color: green;
-      font-weight: bold;
-      margin-top: 5px;
-    }
-
-    .contact {
-      background: #1e3a8a;
-      color: white;
-      padding: 40px 20px;
-    }
-
-    .contact input,
-    .contact textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 5px;
-    }
-
-    .contact button {
-      background: #f59e0b;
-      border: none;
-      padding: 10px 20px;
-      color: white;
-      cursor: pointer;
-      border-radius: 5px;
     }
 
     footer {
-      background: #111;
+      background: #03045e;
       color: white;
       text-align: center;
       padding: 15px;
     }
 
-    /* Local test (myweb only): nudge dfchat contact overlay 10px up from default */
-    body.myweb-test #dfchat-contact-form.dfchat-is-open {
-      animation: none;
-      opacity: 1;
-      transform: translateY(-10px);
+    button {
+      padding: 10px 20px;
+      background: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
   </style>
-
-  <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+	  
+	   <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
   <link rel="stylesheet" href="https://qabot2026.github.io/multilingual/static/company.css">
+	  
 </head>
-<body class="myweb-test">
 
-  <script>
+<body>
+	
+	 <script>
     (function () {
       try {
         var params = new URLSearchParams(window.location.search || "");
@@ -150,64 +102,54 @@
   <script src="https://qabot2026.github.io/multilingual/static/company.js"></script>
 
 <header>
-  <h1>Dream Homes</h1>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#properties">Properties</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <h1>CityCare Hospital</h1>
+  <p>24/7 Healthcare Services</p>
 </header>
 
-<section class="hero">
-  <h2>Find Your Perfect Home</h2>
-</section>
+<nav>
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Doctors</a>
+  <a href="#">Contact</a>
+</nav>
 
-<section class="section" id="properties">
-  <h2>Featured Properties</h2>
+<div class="hero">
+  Your Health, Our Priority
+</div>
 
-  <div class="properties">
+<div class="section">
+  <h2>About Us</h2>
+  <p>We provide the best medical services with experienced doctors and modern equipment.</p>
+</div>
 
+<div class="section">
+  <h2>Our Services</h2>
+  <div class="services">
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c" alt="">
-      <div class="card-content">
-        <h3>Luxury Villa</h3>
-        <p>4 BHK • Swimming Pool • Garden</p>
-        <div class="price">₹1.2 Cr</div>
-      </div>
+      <h3>Emergency</h3>
+      <p>24/7 emergency support</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2" alt="">
-      <div class="card-content">
-        <h3>Modern Apartment</h3>
-        <p>3 BHK • City View</p>
-        <div class="price">₹75 Lakh</div>
-      </div>
+      <h3>Cardiology</h3>
+      <p>Heart care specialists</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="">
-      <div class="card-content">
-        <h3>Family House</h3>
-        <p>2 BHK • Parking • Garden</p>
-        <div class="price">₹55 Lakh</div>
-      </div>
+      <h3>Neurology</h3>
+      <p>Brain & nerve treatments</p>
     </div>
-
   </div>
-</section>
+</div>
 
-<section class="contact" id="contact">
-  <h2>Contact Us</h2>
-
-  <input type="text" placeholder="Your Name">
-  <input type="email" placeholder="Your Email">
-  <textarea placeholder="Your Message"></textarea>
-  <button type="button">Send Inquiry</button>
-</section>
+<div class="section">
+  <h2>Book Appointment</h2>
+  <button>Book Now</button>
+</div>
 
 <footer>
-  © 2026 Dream Homes | All Rights Reserved
+  <p>© 2026 CityCare Hospital | All Rights Reserved</p>
 </footer>
 
 </body>
