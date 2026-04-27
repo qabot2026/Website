@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dream Homes Realty</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #0a2540;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  background: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa') no-repeat center/cover;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.section {
+  padding: 40px;
+  text-align: center;
+}
+
+.properties {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card h3 {
+  margin: 10px;
+}
+
+.card p {
+  margin: 10px;
+  color: gray;
+}
+
+button {
+  background: #0a2540;
+  color: white;
+  padding: 10px;
+  border: none;
+  margin: 10px;
+  cursor: pointer;
+}
+
+form input, form textarea {
+  width: 80%;
+  padding: 10px;
+  margin: 10px;
+}
+
+footer {
+  background: #0a2540;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Dream Homes Realty</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#properties">Properties</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  Find Your Dream Home
+</div>
+
+<section id="properties" class="section">
+  <h2>Featured Properties</h2>
+
+  <div class="properties">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c">
+      <h3>Luxury Villa</h3>
+      <p>₹1.5 Cr • 4 BHK • Nagpur</p>
+      <button>View Details</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994">
+      <h3>Modern Apartment</h3>
+      <p>₹75 Lakh • 3 BHK • Pune</p>
+      <button>View Details</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d">
+      <h3>Budget Home</h3>
+      <p>₹40 Lakh • 2 BHK • Nagpur</p>
+      <button>View Details</button>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <h2>About Us</h2>
+  <p>We help you find the best properties at the best prices. Trusted by 500+ clients.</p>
+</section>
+
+<section id="contact" class="section">
+  <h2>Contact Us</h2>
+
+  <form>
+    <input type="text" placeholder="Your Name"><br>
+    <input type="email" placeholder="Your Email"><br>
+    <textarea placeholder="Your Message"></textarea><br>
+    <button type="submit">Send Message</button>
+  </form>
+
+</section>
+
+<footer>
+  <p>© 2026 Dream Homes Realty</p>
+</footer>
+
+</body>
+</html>
